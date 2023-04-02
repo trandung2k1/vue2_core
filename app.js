@@ -1,5 +1,16 @@
+Vue.use(VueRouter);
+import Home from './pages/Home.js';
+import About from './pages/About.js';
+const routes = [
+    { path: '/', component: Home },
+    { path: '/about', component: About },
+];
+const router = new VueRouter({
+    routes,
+});
 const app = new Vue({
     el: '#app',
+    router: router,
     data: {
         message: 'This is my message',
         name: 'Dung',
@@ -90,6 +101,7 @@ const app = new Vue({
         },
     },
 });
+console.log(app);
 
 app.$el === document.getElementById('root');
 console.log(app);

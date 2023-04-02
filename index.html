@@ -10,40 +10,48 @@
 
 <body>
     <div id="app">
-        <h1>{{message}}</h1>
-        <span v-bind:title="message">
-            Hello
-        </span>
-        <button v-on:click="handleClick">Click me!</button>
-        <!-- <h3>{{name}}</h3> -->
-        <!-- <input type="text" v-model="name"> -->
-        <input ref="input" />
-        <todo-item v-if="isDisplay" v-for="item in todos" v-bind:todo="item" v-bind:key="item.id"></todo-item>
-        <button @click="handleToggle">Toggle</button>
-        <h2 ref="count">{{counter}}</h2>
-        <!-- Not update name -->
-        <h3 v-once>{{name}}</h3>
-        <button @click="handleName">Toggle</button>
-        <p>Using mustaches: {{ rawHtml }}</p>
-        <span v-html="rawHtml"></span></p>
-        <button v-bind:disabled="isDisabled">Disable</button>
-        <h1 :style="{'color': 'red'}">Xin chao</h1>
-        <h2 :style="[isStyled ? {'color': 'blue'} : {'color': 'green'}]">Style</h2>
-        <!-- <form v-on:submit.prevent="handleSubmit"> -->
-        <form v-on:submit="handleSubmit">
-            <input type="text">
-            <button type="submit">Submit</button>
-        </form>
-        <select v-model="age">
-            <option value="" disabled>Select age</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-        </select>
+        <div>
+            <h1>{{message}}</h1>
+            <span v-bind:title="message">
+                Hello
+            </span>
+            <button v-on:click="handleClick">Click me!</button>
+            <!-- <h3>{{name}}</h3> -->
+            <!-- <input type="text" v-model="name"> -->
+            <input ref="input" />
+            <todo-item v-if="isDisplay" v-for="item in todos" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+            <button @click="handleToggle">Toggle</button>
+            <h2 ref="count">{{counter}}</h2>
+            <!-- Not update name -->
+            <h3 v-once>{{name}}</h3>
+            <button @click="handleName">Toggle</button>
+            <p>Using mustaches: {{ rawHtml }}</p>
+            <span v-html="rawHtml"></span></p>
+            <button v-bind:disabled="isDisabled">Disable</button>
+            <h1 :style="{'color': 'red'}">Xin chao</h1>
+            <h2 :style="[isStyled ? {'color': 'blue'} : {'color': 'green'}]">Style</h2>
+            <!-- <form v-on:submit.prevent="handleSubmit"> -->
+            <form v-on:submit="handleSubmit">
+                <input type="text">
+                <button type="submit">Submit</button>
+            </form>
+            <select v-model="age">
+                <option value="" disabled>Select age</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+        </div>
+        <div>
+            <router-link to="/">Home</router-link>
+            <router-link to="/about">About</router-link>
+            <router-view></router-view>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3/dist/vue-router.js"></script>
     <script src="./components/TodoItem.js"></script>
-    <script src="./app.js"></script>
+    <script src="./app.js" type="module"></script>
 </body>
 
 </html>
